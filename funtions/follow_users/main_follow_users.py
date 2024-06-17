@@ -22,11 +22,15 @@ def follow_users(driver, accounts):
                 EC.presence_of_element_located((By.CSS_SELECTOR, "header"))
             )
 
+            print("Voy a clickar en los followers")
             # Hacer clic en el enlace de seguidores
             followers_link = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.PARTIAL_LINK_TEXT, "followers"))
+                EC.element_to_be_clickable((By.XPATH, "//a[contains(@href, '/followers/')]"))
             )
             followers_link.click()
+            print(followers_link)
+
+            print("Ya clicke en los followers mi rey")
 
             # Esperar hasta que la ventana emergente de seguidores esté cargada
             followers_popup = WebDriverWait(driver, 10).until(
